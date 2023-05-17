@@ -51,18 +51,6 @@ $hotels = [
 
 ];
 
-
-
-// <ul>
-    // <?php 
-    //     foreach($hotels as $hotel){
-    //         foreach($hotel as $key => $element){
-    //             echo "<li>$key : $element</li>";
-    //         }
-    //     }
-    // ?>
-// </ul>
-
 ?>
 
 
@@ -93,16 +81,15 @@ $hotels = [
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <?php 
-            foreach($hotels as $hotel){
-                foreach($hotel as $element){
-                    echo "<td> $element </td>";
-                }
-            }
-        ?>
-    </tr>
-   
+    <?php foreach($hotels as $hotel): ?>
+        <tr>
+            <td scope="row"><?php echo $hotel['name'] ?></td>
+            <td><?php echo $hotel['description'] ?></td>
+            <td><?php echo ($hotel['parking']) ? 'Si' : 'No' ?></td>
+            <td><?php echo $hotel['vote'] ?></td>
+            <td><?php echo $hotel['distance_to_center'] ?></td>
+        </tr>
+   <?php endforeach; ?>
   </tbody>
 </table>
 
